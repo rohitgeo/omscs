@@ -7,10 +7,10 @@ w, h = 1000, 800
 st.set_page_config(layout="wide")
 
 st.markdown("# OMSCS Course Reviews")
-# st.sidebar.markdown("# Course Reviews")
-# st.sidebar.markdown("[![Star](<https://img.shields.io/github/stars/rohitgeo/geonotebooks.svg?logo=github&style=social>)](<https://gitHub.com/rohitgeo/geonotebooks>) [![Follow](<https://img.shields.io/twitter/follow/geonumist?style=social>)](<https://www.twitter.com/geonumist>)")
+st.sidebar.markdown("# About this app")
+st.sidebar.markdown("This is an open source project and you are very welcome to **contribute** with [pull requests](https://gitHub.com/rohitgeo/omscs/pulls). This app is maintained by Rohit Singh. Follow me on Twitter to be notified of updates.")
 
-
+st.sidebar.markdown("[![Star](<https://img.shields.io/github/stars/rohitgeo/omscs.svg?logo=github&style=social>)](<https://gitHub.com/rohitgeo/omscs>) [![Follow](<https://img.shields.io/twitter/follow/geonumist?style=social>)](<https://www.twitter.com/geonumist>)")
 
 @st.cache()
 def get_course_list():
@@ -65,13 +65,6 @@ fig = px.strip(course_df, width=w, height=h,
            hover_data=['id', 'name', 'workload', 'difficulty'])
            
 st.plotly_chart(fig)
-# fig = px.scatter(course_df, width=w, height=h,
-#            size=course_df['workload'],
-#            title=f'{course} Reviews',
-#            opacity=0.5,
-#            x='rating', y='difficulty',
-#            hover_data=['id', 'name', 'workload', 'difficulty'])
-# st.plotly_chart(fig)
 
 st.header("Reviews")
 st.markdown('***')
@@ -86,4 +79,4 @@ for index, row in course_df.iterrows():
 
     c.markdown(row['body'])
     st.markdown('***')
-    # st.write('#')
+    
