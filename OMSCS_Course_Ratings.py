@@ -6,7 +6,7 @@ st.set_page_config(layout="wide")
 
 st.title("OMSCS Course Ratings")
 st.sidebar.markdown("# About this app")
-st.sidebar.markdown("This is an open source project and you are very welcome to **contribute** with [pull requests](https://gitHub.com/rohitgeo/omscs/pulls). This app is maintained by Rohit Singh. Follow me on Twitter to be notified of updates.")
+st.sidebar.markdown("This is an open source project and you are very welcome to **contribute** with [pull requests](https://gitHub.com/rohitgeo/omscs/pulls). This app is maintained by [Rohit Singh](https://www.linkedin.com/in/rohitgeo/). Follow me on Twitter to be notified of updates.")
 
 st.sidebar.markdown("[![Star](<https://img.shields.io/github/stars/rohitgeo/omscs.svg?logo=github&style=social>)](<https://gitHub.com/rohitgeo/omscs>) [![Follow](<https://img.shields.io/twitter/follow/geonumist?style=social>)](<https://www.twitter.com/geonumist>)")
 
