@@ -63,8 +63,14 @@ fig = px.strip(course_df, width=w, height=h,
            title=f'{course} Reviews',
            x='rating', y='difficulty',
            hover_data=['id', 'name', 'workload', 'difficulty'])
-           
-st.plotly_chart(fig)
+fig.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.7,
+            xanchor="left",
+            x=0.01
+            ))            
+st.plotly_chart(fig, use_container_width=True)           
 
 st.header("Reviews")
 st.markdown('***')

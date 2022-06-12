@@ -77,7 +77,14 @@ if specialization == "Pick a specialization...":
                color='foundational', 
             # opacity=0.25+ssdf['num_reviews']*0.75/ssdf['num_reviews'].max(),
             hover_data=['course_id', 'workload', 'num_reviews'])
-    st.plotly_chart(fig)
+    fig.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.7,
+            xanchor="left",
+            x=0.01
+            ))            
+    st.plotly_chart(fig, use_container_width=True)
 else:
     corei = 0
     electivei = 0
@@ -105,5 +112,12 @@ else:
         x='rating', y='difficulty', hover_name='name', 
         color='type', 
         hover_data=['course_id', 'workload', 'num_reviews'])
-    st.plotly_chart(fig)
-
+    fig.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.7,
+            xanchor="left",
+            x=0.01
+            ))            
+    st.plotly_chart(fig, use_container_width=True)
+    
