@@ -45,10 +45,15 @@ def get_semester(semester_id):
         sem = 'Fall'
     return sem + " " + year
 
+@st.cache
+def get_sorted_courses():
+    cdf = get_course_df()
+    return sorted(cdf.name)
+
 rdf = load_reviews()
 cdf = get_course_df()
 
-course = st.selectbox("Choose Course", sorted(cdf.name))
+course = st.selectbox("Choose Course", get_sorted_courses())
 
 course_df = rdf[rdf.name == course]
 rating, difficulty, workload = course_df.rating.mean(),  course_df.difficulty.mean(),  course_df.workload.mean()
@@ -75,6 +80,7 @@ col3.metric(label="Average Workload", value="{:.2f}".format(workload))
 fig = px.strip(course_df, width=w, height=h,
            title=f'{course} Reviews',
            x='rating', y='difficulty',
+           color='semester_id',
            hover_data=['id', 'name', 'workload', 'difficulty'])
 fig.update_layout(legend=dict(
             orientation="h",
