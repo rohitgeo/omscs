@@ -52,8 +52,21 @@ course = st.selectbox("Choose Course", sorted(cdf.name))
 
 course_df = rdf[rdf.name == course]
 rating, difficulty, workload = course_df.rating.mean(),  course_df.difficulty.mean(),  course_df.workload.mean()
+cc_df = cdf[cdf.name == course]
+st.header(cc_df.iloc[0]['id'] + ": "+course)
+mdstr = ""
+for alias in eval(list(cc_df.aliases)[0]):
+    mdstr += f"[![](https://badgen.net/badge/aka/{alias}/blue)]({cc_df.iloc[0]['link']})  "
 
-st.header(cdf[cdf.name == course]['id'].iloc[0] + ": "+course)
+if cc_df.iloc[0]['foundational'] == 'true':
+    mdstr += f"[![](https://badgen.net/badge/foundational/True/green)]({cc_df.iloc[0]['link']}) "
+else:
+    mdstr += f"[![](https://badgen.net/badge/foundational/False/red)]({cc_df.iloc[0]['link']}) "
+
+mdstr += f"[![](https://badgen.net/badge/www/{cc_df.iloc[0]['id']}/yellow)]({cc_df.iloc[0]['link']})"
+
+st.markdown(mdstr)
+
 col1, col2, col3 = st.columns(3)
 col1.metric(label="Average Rating", value="{:.2f}".format(rating))
 col2.metric(label="Average Difficulty", value="{:.2f}".format(difficulty))
