@@ -82,6 +82,9 @@ fig = px.strip(course_df, width=w, height=h,
            x='rating', y='difficulty',
            color='semester_id',
            hover_data=['id', 'name', 'workload', 'difficulty'])
+fig.update_xaxes(range=[0.5, 5.5])
+fig.update_yaxes(range=[0.5, 5.5])
+
 fig.update_layout(legend=dict(
             orientation="h",
             yanchor="bottom",
