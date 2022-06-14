@@ -72,7 +72,7 @@ elif specialization == 'Pick a specialization...':
 
 if specialization == "Pick a specialization...":
     ssdf = sumdf.copy()
-    fig = px.scatter(ssdf, width=w, height=h, size=ssdf['workload'],
+    fig = px.scatter(ssdf, title='Foundational Courses', width=w, height=h, size=ssdf['workload'],
             x='rating', y='difficulty', hover_name='name', 
                color='foundational', 
             # opacity=0.25+ssdf['num_reviews']*0.75/ssdf['num_reviews'].max(),
