@@ -77,10 +77,16 @@ col1.metric(label="Average Rating", value="{:.2f}".format(rating))
 col2.metric(label="Average Difficulty", value="{:.2f}".format(difficulty))
 col3.metric(label="Average Workload", value="{:.2f}".format(workload))
 
+sems = ['0000-0'] + [f'{year}-{ys}' for year in range(2013, 2023) for ys in [1,2,3]]
+n_colors = len(sems)
+colors = px.colors.n_colors('rgb(230, 230, 230)', 'rgb(0, 0, 0)', n_colors, colortype='rgb')
+
 fig = px.strip(course_df, width=w, height=h,
            title=f'{course} Reviews',
            x='rating', y='difficulty',
            color='semester_id',
+           category_orders = {'semester_id': sems},
+           color_discrete_map=dict(zip(sems, colors)),
            hover_data=['id', 'name', 'workload', 'difficulty'])
 fig.update_xaxes(range=[0.5, 5.5])
 fig.update_yaxes(range=[0.5, 5.5])
